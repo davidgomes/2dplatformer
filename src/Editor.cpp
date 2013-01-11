@@ -4,6 +4,8 @@ void Editor::setup()
 {
   title = "Map Editor";
   window.create(sf::VideoMode(800, 640, 1), title.c_str(), sf::Style::Titlebar | sf::Style::Close);
+  window.setPosition(sf::Vector2i(sf::VideoMode::getDesktopMode().width / 2 - 400,
+                                  sf::VideoMode::getDesktopMode().height / 2 - 320));
   window.setFramerateLimit(60);
   windowFocused = true;
 
