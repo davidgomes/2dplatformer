@@ -45,12 +45,10 @@ void Editor::update()
 
   if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && windowFocused && sf::Mouse::getPosition(window).y > 0 && sf::Mouse::getPosition(window).y < 640 && sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).x < 800) {
     map->raw[sf::Mouse::getPosition(window).y / 8][sf::Mouse::getPosition(window).x / 8] = 1;
-    map->writeToFile();
   }
 
   if (sf::Mouse::isButtonPressed(sf::Mouse::Right) && windowFocused && sf::Mouse::getPosition(window).y > 0 && sf::Mouse::getPosition(window).y < 640 && sf::Mouse::getPosition(window).x > 0 && sf::Mouse::getPosition(window).x < 800) {
     map->raw[sf::Mouse::getPosition(window).y / 8][sf::Mouse::getPosition(window).x / 8] = 0;
-    map->writeToFile();
   }
 }
 

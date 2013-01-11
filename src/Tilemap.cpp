@@ -36,9 +36,6 @@ void Tilemap::writeToFile()
 
 void Tilemap::draw(int playerX, int playerY)
 {
-  playerX = 400;
-  playerY = 320;
-  
   for (int y = 0; y < 80; y++) {
     for (int x = 0; x < 100; x++) {
       if (raw[y][x] == 1) {
