@@ -18,6 +18,7 @@ class Game
   public:
     sf::RenderWindow window;
     State *currentState;
+    bool windowFocused;
 
     sf::Clock deltaClock;
     float lastTime;

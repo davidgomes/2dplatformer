@@ -14,7 +14,7 @@ PlayState::PlayState(Game *_game)
 
   backgroundTexture.loadFromFile("res/background.png");
   backgroundImage.setTexture(backgroundTexture);
-  
+
   currentMap = new Tilemap("res/map1.txt", &(game->window));
   player = new Player(_game, currentMap);
 }
@@ -24,6 +24,7 @@ void PlayState::setup() { }
 void PlayState::update()
 {
   sf::Event event;
+
   while (game->window.pollEvent(event)) {
     if (event.type == sf::Event::Closed) {
       game->window.close();
@@ -31,6 +32,8 @@ void PlayState::update()
       if (event.key.code == sf::Keyboard::Escape) {
         game->window.close();
       }
+    } else if (event.type == sf::Event::LostFocus) {
+      game->windowFocused = false;
     }
   }
 
@@ -44,7 +47,7 @@ void PlayState::draw()
 
   /* Draw the background */
   game->window.draw(backgroundImage);
-  
+
   /* Draw the map */
   currentMap->draw(player->x, player->y);
 
