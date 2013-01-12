@@ -19,7 +19,10 @@ PlayState::PlayState(Game *_game)
   player = new Player(_game, currentMap);
 }
 
-void PlayState::setup() { }
+void PlayState::setup()
+{
+
+}
 
 void PlayState::update()
 {

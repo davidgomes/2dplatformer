@@ -44,7 +44,7 @@ void Player::update()
 
   /* Jumpity jumpy jump */
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-    if (collidingBelow()) {
+    if (collidingBelow() && canJump) {
       vy = -6;
       canJump = false;
     }
