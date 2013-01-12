@@ -25,6 +25,22 @@ void Game::run()
   currentState->setup();
 
   while (window.isOpen()) {
+    sf::Event event;
+
+    while (window.pollEvent(event)) {
+      if (event.type == sf::Event::Closed) {
+        window.close();
+      }
+
+      if (event.type == sf::Event::LostFocus) {
+        windowFocused = false;
+      }
+
+      if (event.type == sf::Event::GainedFocus) {
+        windowFocused = true;
+      }
+    }
+    
     if (windowFocused) {
       currentState->update();
       currentState->draw();
@@ -33,14 +49,6 @@ void Game::run()
       dt = currentTime - lastTime;
       fps = 1.f / currentTime;
       lastTime = currentTime;
-    } else {
-      sf::Event event;
-
-      while (window.pollEvent(event)) {
-        if (event.type == sf::Event::GainedFocus) {
-          windowFocused = true;
-        }
-      }
     }
   }
 }

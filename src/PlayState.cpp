@@ -23,20 +23,6 @@ void PlayState::setup() { }
 
 void PlayState::update()
 {
-  sf::Event event;
-
-  while (game->window.pollEvent(event)) {
-    if (event.type == sf::Event::Closed) {
-      game->window.close();
-    } else if (event.type == sf::Event::KeyPressed) {
-      if (event.key.code == sf::Keyboard::Escape) {
-        game->window.close();
-      }
-    } else if (event.type == sf::Event::LostFocus) {
-      game->windowFocused = false;
-    }
-  }
-
   player->update();
 }
 
