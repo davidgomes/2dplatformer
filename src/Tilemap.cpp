@@ -53,14 +53,14 @@ void Tilemap::writeToFile()
   fclose(file);
 }
 
-void Tilemap::draw(int camX, int camY)
+void Tilemap::draw(int camX)
 {
   for (int y = 0; y < height; y++) {
     for (int x = (int) 0; x < width; x++) {
       if (raw[y][x] == 1) {
         sf::Sprite block(GRAY_BLOCK);
 
-        block.setPosition(x * tileSize, y * tileSize);
+        block.setPosition(x * tileSize - camX, y * tileSize);
         window->draw(block);
       }
     }
