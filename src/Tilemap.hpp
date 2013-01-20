@@ -21,7 +21,7 @@ class Tilemap
   public:
     Tilemap(string _filename, sf::RenderWindow *_window);
 
-    void draw(int playerX, int playerY);
+    void draw(int camX, int camY);
     void writeToFile();
 
     int tileSize;

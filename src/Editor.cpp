@@ -11,10 +11,10 @@ void Editor::setup()
 
   backgroundTexture.loadFromFile("res/background.png");
   backgroundImage.setTexture(backgroundTexture);
-  
+
   arialFont.loadFromFile("res/arial.ttf");
 
-  map = new Tilemap("res/map1.txt", &window);
+  map = new Tilemap("res/map2.txt", &window);
 }
 
 void Editor::run()

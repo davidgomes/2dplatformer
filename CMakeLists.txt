@@ -3,7 +3,7 @@ cmake_minimum_required (VERSION 2.8)
 
 set(CMAKE_MODULE_PATH ${sfmle_SOURCE_DIR}/cmake/modules
                       ${CMAKE_MODULE_PATH})
-
+                      
 find_package(SFML 2.0 REQUIRED audio graphics network system window)
 
 include_directories (${SFML_INCLUDE_DIR})
