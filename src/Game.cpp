@@ -4,7 +4,7 @@
 #include "TitleState.hpp"
 #include "PlayState.hpp"
 
-void Game::setup()
+Game::Game()
 {
   title = "2D Platformer";
   window.create(sf::VideoMode(800, 640, 1), title.c_str(), sf::Style::Titlebar | sf::Style::Close);
@@ -56,7 +56,6 @@ void Game::run()
 int main(int argc, char *argv[])
 {
   Game game;
-  game.setup();
   game.run();
 
   return 0;

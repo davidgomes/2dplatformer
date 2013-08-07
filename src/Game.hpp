@@ -26,8 +26,8 @@ class Game
     float fps;
 
     sf::Font arialFont;
-    
-    void setup();
+
+    Game();
     void run();
 };
 
