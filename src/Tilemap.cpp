@@ -2,10 +2,11 @@
 
 using namespace std;
 
-Tilemap::Tilemap(string _filename, sf::RenderWindow *_window)
+Tilemap::Tilemap(Game *_game, string _filename)
 {
+  game = _game;
+  
   filename = _filename;
-  window = _window;
   readFromFile();
 
   tileSize = 8;
@@ -53,16 +54,21 @@ void Tilemap::writeToFile()
   fclose(file);
 }
 
-void Tilemap::draw(int camX)
+void Tilemap::draw(int playerX, int playerY)
 {
+  view.reset(sf::FloatRect(0, 0, 800, 640));
+  game->window.setView(view);
+  
   for (int y = 0; y < height; y++) {
     for (int x = (int) 0; x < width; x++) {
       if (raw[y][x] == 1) {
         sf::Sprite block(GRAY_BLOCK);
 
-        block.setPosition(x * tileSize - camX, y * tileSize);
-        window->draw(block);
+        block.setPosition(x * tileSize, y * tileSize);
+        game->window.draw(block);
       }
     }
   }
+
+  game->window.setView(game->window.getDefaultView());
 }

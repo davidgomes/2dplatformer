@@ -15,7 +15,7 @@ PlayState::PlayState(Game *_game)
   backgroundTexture.loadFromFile("res/background.png");
   backgroundImage.setTexture(backgroundTexture);
 
-  currentMap = new Tilemap("res/map1.txt", &(game->window));
+  currentMap = new Tilemap(game, "res/map1.txt");
   player = new Player(_game, currentMap);
 }
 
@@ -38,7 +38,7 @@ void PlayState::draw()
   game->window.draw(backgroundImage);
 
   /* Draw the map */
-  currentMap->draw(player->x);
+  currentMap->draw(player->x, player->y);
 
   /* Draw the player */
   player->draw();

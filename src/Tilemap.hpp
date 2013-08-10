@@ -8,20 +8,24 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
+#include "Game.hpp"
+
 using namespace std;
 
 class Tilemap
 {
   private:
+    Game *game;
     string filename;
     void readFromFile();
-    sf::RenderWindow *window;
     sf::Texture GRAY_BLOCK;
 
+    sf::View view;
+    
   public:
-    Tilemap(string _filename, sf::RenderWindow *_window);
+    Tilemap(Game *_game, string _filename);
 
-    void draw(int camX);
+    void draw(int playerX, int playerY);
     void writeToFile();
 
     int tileSize;

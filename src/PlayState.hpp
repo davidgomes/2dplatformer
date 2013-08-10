@@ -29,6 +29,9 @@ class PlayState : public State
     sf::Texture backgroundTexture;
     sf::Sprite backgroundImage;
 
+    int camX;
+    int camY;
+
   public:
     PlayState(Game *_game);
 

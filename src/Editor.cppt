@@ -14,7 +14,7 @@ void Editor::setup()
 
   arialFont.loadFromFile("res/arial.ttf");
 
-  map = new Tilemap("res/map2.txt", &window);
+  //map = new Tilemap("res/map2.txt", &window);
 }
 
 void Editor::run()
