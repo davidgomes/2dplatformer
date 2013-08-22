@@ -4,7 +4,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
-#include <string>
+#include <stdio.h>
 
 #include "State.hpp"
 

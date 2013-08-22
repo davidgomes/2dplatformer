@@ -1,16 +1,13 @@
 #ifndef PLAYER_HPP
 #define PLAYER_HPP
 
-#include <SFML/Graphics.hpp>
-
-#include <stdio.h>
-
 #include "Game.hpp"
 #include "Tilemap.hpp"
+#include "Entity.hpp"
 
 using namespace std;
 
-class Player : public sf::Sprite
+class Player : public Entity
 {
   private:
     sf::Texture imageRight;

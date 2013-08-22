@@ -8,8 +8,9 @@ find_package(SFML 2.0 REQUIRED audio graphics network system window)
 include_directories (${SFML_INCLUDE_DIR})
 link_libraries (${SFML_LIBRARIES})
 
-file (GLOB_RECURSE PLATFORMER_SOURCES "src/*.cpp")
 file (GLOB_RECURSE PLATFORMER_INCLUDES "src/*.hpp")
+file (GLOB_RECURSE PLATFORMER_SOURCES "src/Entity.cpp")
+file (GLOB_RECURSE PLATFORMER_SOURCES "src/*.cpp")
 
 include_directories (PLATFORMER_INCLUDES)
 add_executable (2dplatformer ${PLATFORMER_SOURCES})

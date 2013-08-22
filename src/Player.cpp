@@ -1,7 +1,5 @@
 #include "Player.hpp"
 
-using namespace std;
-
 Player::Player(Game *_game, Tilemap *_map)
 {
   game = _game;
