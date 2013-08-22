@@ -1,14 +1,12 @@
 #ifndef TILE_TYPE_HPP
 #define TILE_TYPE_HPP
 
-#include <stdio.h>
 #include <string>
 #include <cmath>
 
-#include <SFML/Window.hpp>
-#include <SFML/Graphics.hpp>
-
 #include "Game.hpp"
+#include "Entity.hpp"
+#include "Block.hpp"
 
 using namespace std;
 
@@ -28,6 +26,7 @@ class Tilemap
     void draw(int playerX, int playerY);
     void writeToFile();
 
+    vector<Entity*> collidableBlocks;
     int tileSize;
     int width;
     int height;

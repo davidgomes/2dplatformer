@@ -1,7 +1,5 @@
 #include "PlayState.hpp"
 
-using namespace std;
-
 PlayState::PlayState(Game *_game)
 {
   game = _game;
@@ -17,6 +15,11 @@ PlayState::PlayState(Game *_game)
 
   currentMap = new Tilemap(game, "res/map1.txt");
   player = new Player(_game, currentMap);
+
+  /* Populate collidables */
+  vector<Entity*> mapCollidables = currentMap->collidableBlocks;
+  collidables.insert(collidables.end(),
+                     mapCollidables.begin(), mapCollidables.end());
 }
 
 void PlayState::setup()

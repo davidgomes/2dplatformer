@@ -5,7 +5,7 @@ using namespace std;
 Tilemap::Tilemap(Game *_game, string _filename)
 {
   game = _game;
-  
+
   filename = _filename;
   readFromFile();
 
@@ -29,6 +29,11 @@ void Tilemap::readFromFile()
     for (int x = 0; x < 100; x++) {
       fscanf(file, "%2d", &tempTile);
       raw[y][x] = tempTile;
+
+      if (tempTile == 1) {
+        Block *block = new Block(x, y, tileSize, tileSize);
+        collidableBlocks.push_back(block);
+      }
     }
 
     fscanf(file, "\n");
@@ -42,7 +47,7 @@ void Tilemap::writeToFile()
   FILE *file = fopen(filename.c_str(), "w");
 
   fprintf(file, "%d\n%d\n", width, height);
-  
+
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
       fprintf(file, "%2d", raw[y][x]);
@@ -58,7 +63,7 @@ void Tilemap::draw(int playerX, int playerY)
 {
   view.reset(sf::FloatRect(0, 0, 800, 640));
   game->window.setView(view);
-  
+
   for (int y = 0; y < height; y++) {
     for (int x = (int) 0; x < width; x++) {
       if (raw[y][x] == 1) {

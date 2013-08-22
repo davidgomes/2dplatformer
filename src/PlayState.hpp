@@ -1,16 +1,14 @@
 #ifndef PLAY_STATE_HPP
 #define PLAY_STATE_HPP
 
-#include <stdio.h>
 #include <sstream>
 #include <cmath>
 #include <string>
-
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
+#include <vector>
 
 #include "Game.hpp"
 #include "State.hpp"
+#include "Entity.hpp"
 #include "Player.hpp"
 #include "Tilemap.hpp"
 
@@ -32,6 +30,8 @@ class PlayState : public State
     int camX;
     int camY;
 
+    vector<Entity*> collidables;
+    
   public:
     PlayState(Game *_game);
 
